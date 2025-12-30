@@ -1,4 +1,4 @@
-package de.require4testing.require4testing;
+package de.require4testing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

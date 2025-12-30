@@ -1,4 +1,4 @@
-package de.require4testing.model;
+package de.require4testing.require4testing.model;
 
 public class Requirement {
 
