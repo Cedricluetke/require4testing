@@ -1,4 +1,4 @@
-package service;
+package de.require4testing.require4testing.service;
 
 import de.require4testing.model.Requirement;
 import org.springframework.stereotype.Service;
