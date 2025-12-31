@@ -13,21 +13,25 @@
 <h3>Angemeldet als:</h3>
 <p id="admin">Admin</p>
 
-<h2>Testfälle der Anforderung</h2>
+<h2>Testfälle der Anforderung:</h2>
+<h3 th:text="${requirement.title}"></h3>
 
 <div class="table-container">
-    <table class="data-table">
+    <table class="data-table testCasesTable">
         <tr>
             <th>ID</th>
             <th>Titel</th>
-            <th>Beschreibung</th>
         </tr>
-        <tr th:each="req : ${requirements}">
-            <td th:text="${req.id}"></td>
-            <td th:text="${req.title}"></td>
-            <td th:text="${req.description}"></td>
+        <tr th:each="tc : ${requirement.testCases}">
+            <td th:text="${tc.id}"></td>
+            <td th:text="${tc.title}"></td>
         </tr>
     </table>
+</div>
+
+<div class="pagination">
+<a th:href="@{/requirements}">&larr; Zurück zur Liste</a>
+</div>
 
 </body>
 </html>

@@ -21,11 +21,13 @@
             <th>ID</th>
             <th>Titel</th>
             <th>Beschreibung</th>
+            <th>Testfälle</th>
         </tr>
         <tr th:each="req : ${requirements}">
             <td th:text="${req.id}"></td>
             <td th:text="${req.title}"></td>
             <td th:text="${req.description}"></td>
+            <td> <a th:href="@{/requirements/{id}(id=${req.id})}" th:text="Ansehen"></a></td>
         </tr>
     </table>
 

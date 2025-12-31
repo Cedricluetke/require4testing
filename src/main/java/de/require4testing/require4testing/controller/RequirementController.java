@@ -5,6 +5,7 @@ import de.require4testing.require4testing.service.RequirementService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
@@ -34,5 +35,12 @@ public class RequirementController {
         model.addAttribute("totalPages", totalPages);
 
         return "requirements";
+    }
+
+    @GetMapping("/requirements/{id}")
+    public String showRequirementDetail(@PathVariable Long id, Model model) {
+        Requirement req = requirementService.findById(id);
+        model.addAttribute("requirement", req);
+        return "testcase";
     }
 }
