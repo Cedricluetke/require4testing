@@ -2,23 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Require4Testing</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 
-<h1>Liste der Requirements</h1>
+<header>
+    <h1>Require4Testing</h1>
+</header>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Titel</th>
-        <th>Beschreibung</th>
-    </tr>
-    <tr th:each="req : ${requirements}">
-        <td th:text="${req.id}"></td>
-        <td th:text="${req.title}"></td>
-        <td th:text="${req.description}"></td>
-    </tr>
-</table>
+<h3>Angemeldet als:</h3>
+<p id="admin">Admin</p>
+
+<h2>Liste der Requirements</h2>
+
+<div class="table-container">
+    <table class="data-table">
+        <tr>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Beschreibung</th>
+        </tr>
+        <tr th:each="req : ${requirements}">
+            <td th:text="${req.id}"></td>
+            <td th:text="${req.title}"></td>
+            <td th:text="${req.description}"></td>
+        </tr>
+    </table>
 
 </body>
 </html>

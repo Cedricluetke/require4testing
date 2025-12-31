@@ -1,0 +1,91 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    background-color: #f7f8fa;
+    color: #222;
+}
+
+header {
+    background-color: #e0e0e0;
+    min-height: 32px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 3%;
+}
+
+h3 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+#admin {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    color: red;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 480px;
+    margin-top: 1%;
+    padding: 20px 0;
+}
+
+.data-table {
+    width: 80%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.data-table th {
+    text-align: left;
+    font-weight: 700;
+    padding: 12px 15px;
+    background-color: #e0e0e0;
+    border-radius: 6px 6px 0 0;
+}
+
+.data-table td {
+    padding: 12px 15px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    max-width: 300px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+.data-table tbody tr:hover td {
+    background-color: #d9ebff;
+    transition: background-color 0.2s ease;
+}
