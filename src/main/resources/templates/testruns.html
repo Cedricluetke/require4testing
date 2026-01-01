@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TestRuns</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Require4Testing</h1>
+</header>
+
+<h3>Angemeldet als:</h3>
+<p id="admin">Admin</p>
+
+<h2>Testläufe</h2>
+
+<div class="table-container">
+    <table class="data-table">
+        <tr>
+            <th>ID</th>
+            <th>Datum</th>
+            <th>Ergebnis</th>
+            <th>Tester</th>
+        </tr>
+
+        <tr th:each="tr : ${testRuns}">
+            <td th:text="${tr.id}"></td>
+            <td th:text="${tr.executionDate}"></td>
+            <td th:text="${tr.passed ? 'Bestanden' : 'Nicht bestanden'}"></td>
+            <td th:text="${tr.tester.name}"></td>
+        </tr>
+    </table>
+</div>
+
+<div class="pagination">
+<a th:href="@{/requirements/{id}(id=${requirementId})}">
+    ← Zurück zur Anforderung </a>
+</div>
+
+</body>
+</html>

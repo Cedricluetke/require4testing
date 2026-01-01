@@ -13,20 +13,25 @@
 <h3>Angemeldet als:</h3>
 <p id="admin">Admin</p>
 
-<h2>Testfälle der Anforderung:</h2>
-<h3 th:text="${requirement.title}"></h3>
+<h2 th:text="${requirement.title}"></h2>
+<h3>Testfälle:</h3>
 
 <div class="table-container">
     <table class="data-table testCasesTable">
         <tr>
             <th>ID</th>
             <th>Titel</th>
-            <th>Abgeschlossen</th>
+            <th>Fertigstellung</th>
+            <th>Testlauf</th>
         </tr>
         <tr th:each="tc : ${requirement.testCases}">
             <td th:text="${tc.id}"></td>
             <td th:text="${tc.title}"></td>
-            <td th:text="${tc.completed}"></td>
+            <td th:text="${tc.completed ? 'Erledigt' : 'Offen'}"></td>
+            <td>
+                <a th:href="@{/requirements/{reqId}/testcases/{tcId}/testruns(
+        reqId=${requirement.id}, tcId=${tc.id})}">Anzeigen </a>
+            </td>
         </tr>
     </table>
 </div>

@@ -1,6 +1,8 @@
 package de.require4testing.controller;
 
 import de.require4testing.model.Requirement;
+import de.require4testing.require4testing.model.Testrun;
+import de.require4testing.require4testing.service.TestrunService;
 import de.require4testing.require4testing.service.RequirementService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +15,11 @@ import java.util.List;
 public class RequirementController {
 
     private final RequirementService requirementService;
+    private final TestrunService testrunService;
 
-    public RequirementController(RequirementService requirementService) {
+    public RequirementController(RequirementService requirementService, TestrunService testrunService) {
         this.requirementService = requirementService;
+        this.testrunService = testrunService;
     }
 
     @GetMapping("/requirements")
@@ -42,5 +46,20 @@ public class RequirementController {
         Requirement req = requirementService.findById(id);
         model.addAttribute("requirement", req);
         return "testcase";
+    }
+
+    @GetMapping("/requirements/{reqId}/testcases/{tcId}/testruns")
+    public String showTestRuns(
+            @PathVariable Long reqId,
+            @PathVariable Long tcId,
+            Model model
+    ) {
+        List<Testrun> testRuns = testrunService.findByTestcaseId(tcId);
+
+        model.addAttribute("testRuns", testRuns);
+        model.addAttribute("testcaseId", tcId);
+        model.addAttribute("requirementId", reqId);
+
+        return "testruns";
     }
 }
