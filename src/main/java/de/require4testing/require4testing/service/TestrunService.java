@@ -1,6 +1,10 @@
 package de.require4testing.require4testing.service;
 
 import de.require4testing.require4testing.model.Tester;
+import de.require4testing.require4testing.model.Testcase;
+import de.require4testing.require4testing.repository.TestrunRepository;
+import de.require4testing.require4testing.service.TestrunService;
+import de.require4testing.require4testing.service.TestcaseService;
 import de.require4testing.require4testing.model.Testrun;
 import org.springframework.stereotype.Service;
 
@@ -11,29 +15,13 @@ import java.util.List;
 @Service
 public class TestrunService {
 
-    private final List<Testrun> testruns = new ArrayList<>();
+    private final TestrunRepository testrunRepository;
 
-    public TestrunService() {
-        testruns.add(new Testrun(
-                1L,
-                1L,
-                LocalDate.now().minusDays(1),
-                "OPEN",
-                new Tester(1L, "Cedric")
-        ));
-
-        testruns.add(new Testrun(
-                2L,
-                1L,
-                LocalDate.now(),
-                "OPEN",
-                new Tester(2L, "Nele")
-        ));
+    public TestrunService(TestrunRepository testrunRepository) {
+        this.testrunRepository = testrunRepository;
     }
 
-    public List<Testrun> findByTestcaseId(Long testcaseId) {
-        return testruns.stream()
-                .filter(tr -> tr.getTestcaseId().equals(testcaseId))
-                .toList();
+    public List<Testrun> findByTestcase(Testcase testcase) {
+        return testrunRepository.findByTestcase(testcase);
     }
 }

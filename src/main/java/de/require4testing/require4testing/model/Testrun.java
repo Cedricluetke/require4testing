@@ -10,46 +10,26 @@ public class Testrun {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long testcaseId;
+
     private LocalDate executionDate;
     private String status;
 
     @ManyToOne
     private Tester tester;
 
+    @ManyToOne
+    private Testcase testcase;
+
     protected Testrun() {}
 
-    public Testrun(Long id, Long testcaseId, LocalDate executionDate, String status, Tester tester) {
-        this.id = id;
-        this.testcaseId = testcaseId;
+    public Testrun(LocalDate executionDate, String status, Tester tester, Testcase testcase) {
         this.executionDate = executionDate;
         this.status = status;
         this.tester = tester;
+        this.testcase = testcase;
     }
 
-    public Long getId() {
-
-        return id;
+    public Testcase getTestcase() {
+        return testcase;
     }
-
-    public Long getTestcaseId() {
-
-        return testcaseId;
-    }
-
-    public LocalDate getExecutionDate() {
-
-        return executionDate;
-    }
-
-    public String getStatus() {
-
-        return status;
-    }
-
-    public Tester getTester() {
-
-        return tester;
-    }
-
 }

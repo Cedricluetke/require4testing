@@ -1,41 +1,25 @@
 package de.require4testing.require4testing.service;
 
 import de.require4testing.require4testing.model.Requirement;
-import de.require4testing.require4testing.model.Testcase;
+import de.require4testing.require4testing.repository.RequirementRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class RequirementService {
 
-    private final List<Requirement> requirements = new ArrayList<>();
+    private final RequirementRepository requirementRepository;
 
-    public RequirementService() {
-
+    public RequirementService(RequirementRepository requirementRepository) {
+        this.requirementRepository = requirementRepository;
     }
 
-    public List<Requirement> getRequirements(int page, int size) {
-        int start = page * size;
-        int end = Math.min(start + size, requirements.size());
-
-        if (start > requirements.size()) {
-            return List.of();
-        }
-
-        return requirements.subList(start, end);
-    }
-
-    public int getTotalPages(int size) {
-        return (int) Math.ceil((double) requirements.size() / size);
+    public Page<Requirement> findPaginated(int page, int size) {
+        return requirementRepository.findAll(PageRequest.of(page, size));
     }
 
     public Requirement findById(Long id) {
-        return requirements.stream()
-                .filter(r -> r.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        return requirementRepository.findById(id).orElse(null);
     }
-
 }

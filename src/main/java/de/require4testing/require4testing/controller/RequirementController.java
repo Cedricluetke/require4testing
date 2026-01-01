@@ -2,13 +2,15 @@ package de.require4testing.controller;
 
 import de.require4testing.require4testing.model.Requirement;
 import de.require4testing.require4testing.model.Testrun;
-import de.require4testing.require4testing.service.TestrunService;
+import de.require4testing.require4testing.model.Testcase;
 import de.require4testing.require4testing.service.RequirementService;
+import de.require4testing.require4testing.service.TestrunService;
+import de.require4testing.require4testing.service.TestcaseService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @Controller
@@ -16,11 +18,18 @@ public class RequirementController {
 
     private final RequirementService requirementService;
     private final TestrunService testrunService;
+    private final TestcaseService testcaseService;
 
-    public RequirementController(RequirementService requirementService, TestrunService testrunService) {
+    public RequirementController(
+            RequirementService requirementService,
+            TestrunService testrunService,
+            TestcaseService testcaseService
+    ) {
         this.requirementService = requirementService;
         this.testrunService = testrunService;
+        this.testcaseService = testcaseService;
     }
+
 
     @GetMapping("/requirements")
     public String showRequirements(
@@ -29,14 +38,12 @@ public class RequirementController {
     ) {
         int pageSize = 10;
 
-        List<Requirement> requirements =
-                requirementService.getRequirements(page, pageSize);
+        Page<Requirement> requirementPage =
+                requirementService.findPaginated(page, pageSize);
 
-        int totalPages = requirementService.getTotalPages(pageSize);
-
-        model.addAttribute("requirements", requirements);
+        model.addAttribute("requirements", requirementPage.getContent());
         model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalPages", requirementPage.getTotalPages());
 
         return "requirements";
     }
@@ -54,10 +61,11 @@ public class RequirementController {
             @PathVariable Long tcId,
             Model model
     ) {
-        List<Testrun> testRuns = testrunService.findByTestcaseId(tcId);
+        Testcase testcase = testcaseService.findById(tcId);
+        List<Testrun> testRuns = testrunService.findByTestcase(testcase);
 
         model.addAttribute("testRuns", testRuns);
-        model.addAttribute("testcaseId", tcId);
+        model.addAttribute("testcase", testcase);
         model.addAttribute("requirementId", reqId);
 
         return "testruns";

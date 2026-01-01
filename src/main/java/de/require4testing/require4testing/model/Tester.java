@@ -15,15 +15,16 @@ public class Tester {
 
     protected Tester() {}
 
-    public Tester(Long id, String name) {
-        this.id = id;
+    public Tester(String name) {
         this.name = name;
     }
 
     public Long getId() {
+
         return id;
     }
     public String getName() {
+
         return name;
     }
 
