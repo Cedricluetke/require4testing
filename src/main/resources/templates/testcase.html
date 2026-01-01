@@ -21,10 +21,12 @@
         <tr>
             <th>ID</th>
             <th>Titel</th>
+            <th>Abgeschlossen</th>
         </tr>
         <tr th:each="tc : ${requirement.testCases}">
             <td th:text="${tc.id}"></td>
             <td th:text="${tc.title}"></td>
+            <td th:text="${tc.completed}"></td>
         </tr>
     </table>
 </div>
