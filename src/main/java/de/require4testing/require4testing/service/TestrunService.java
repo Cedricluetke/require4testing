@@ -18,7 +18,7 @@ public class TestrunService {
                 1L,
                 1L,
                 LocalDate.now().minusDays(1),
-                true,
+                "OPEN",
                 new Tester(1L, "Cedric")
         ));
 
@@ -26,7 +26,7 @@ public class TestrunService {
                 2L,
                 1L,
                 LocalDate.now(),
-                false,
+                "OPEN",
                 new Tester(2L, "Nele")
         ));
     }

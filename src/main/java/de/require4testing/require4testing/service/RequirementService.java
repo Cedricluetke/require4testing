@@ -13,22 +13,7 @@ public class RequirementService {
     private final List<Requirement> requirements = new ArrayList<>();
 
     public RequirementService() {
-        for (long i = 1; i <= 25; i++) {
-            Requirement req = new Requirement(
-                    "Requirement " + i,
-                    "Beschreibung für Requirement " + i
-            );
 
-            // Beispiel-Testfälle für jede Requirement
-            req.getTestCases().add(new Testcase("Testfall 1 für Req " + i));
-            req.getTestCases().add(new Testcase("Testfall 2 für Req " + i));
-            req.getTestCases().add(new Testcase("Testfall 3 für Req " + i));
-            req.getTestCases().add(new Testcase("Testfall 4 für Req " + i));
-            req.getTestCases().add(new Testcase("Testfall 5 für Req " + i));
-            req.getTestCases().add(new Testcase("Testfall 6 für Req " + i));
-
-            requirements.add(req);
-        }
     }
 
     public List<Requirement> getRequirements(int page, int size) {

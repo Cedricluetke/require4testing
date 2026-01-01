@@ -7,34 +7,39 @@ public class Testrun {
     private Long id;
     private Long testcaseId;
     private LocalDate executionDate;
-    private boolean passed;
+    private String status;
     private Tester tester;
 
-    public Testrun(Long id, Long testcaseId, LocalDate executionDate, boolean passed, Tester tester) {
+    public Testrun(Long id, Long testcaseId, LocalDate executionDate, String status, Tester tester) {
         this.id = id;
         this.testcaseId = testcaseId;
         this.executionDate = executionDate;
-        this.passed = passed;
+        this.status = status;
         this.tester = tester;
     }
 
     public Long getId() {
+
         return id;
     }
 
     public Long getTestcaseId() {
+
         return testcaseId;
     }
 
     public LocalDate getExecutionDate() {
+
         return executionDate;
     }
 
-    public boolean isPassed() {
-        return passed;
+    public String getStatus() {
+
+        return status;
     }
 
     public Tester getTester() {
+
         return tester;
     }
 
