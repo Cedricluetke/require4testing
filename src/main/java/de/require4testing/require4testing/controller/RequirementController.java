@@ -1,6 +1,6 @@
 package de.require4testing.controller;
 
-import de.require4testing.model.Requirement;
+import de.require4testing.require4testing.model.Requirement;
 import de.require4testing.require4testing.model.Testrun;
 import de.require4testing.require4testing.service.TestrunService;
 import de.require4testing.require4testing.service.RequirementService;

@@ -1,6 +1,6 @@
 package de.require4testing.require4testing.service;
 
-import de.require4testing.model.Requirement;
+import de.require4testing.require4testing.model.Requirement;
 import de.require4testing.require4testing.model.Testcase;
 import org.springframework.stereotype.Service;
 
@@ -15,18 +15,17 @@ public class RequirementService {
     public RequirementService() {
         for (long i = 1; i <= 25; i++) {
             Requirement req = new Requirement(
-                    i,
                     "Requirement " + i,
                     "Beschreibung für Requirement " + i
             );
 
             // Beispiel-Testfälle für jede Requirement
-            req.getTestCases().add(new Testcase(1L, "Testfall 1 für Req " + i));
-            req.getTestCases().add(new Testcase(2L, "Testfall 2 für Req " + i));
-            req.getTestCases().add(new Testcase(3L, "Testfall 3 für Req " + i));
-            req.getTestCases().add(new Testcase(4L, "Testfall 4 für Req " + i));
-            req.getTestCases().add(new Testcase(5L, "Testfall 5 für Req " + i));
-            req.getTestCases().add(new Testcase(6L, "Testfall 6 für Req " + i));
+            req.getTestCases().add(new Testcase("Testfall 1 für Req " + i));
+            req.getTestCases().add(new Testcase("Testfall 2 für Req " + i));
+            req.getTestCases().add(new Testcase("Testfall 3 für Req " + i));
+            req.getTestCases().add(new Testcase("Testfall 4 für Req " + i));
+            req.getTestCases().add(new Testcase("Testfall 5 für Req " + i));
+            req.getTestCases().add(new Testcase("Testfall 6 für Req " + i));
 
             requirements.add(req);
         }
