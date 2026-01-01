@@ -1,9 +1,19 @@
 package de.require4testing.require4testing.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Tester {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    protected Tester() {}
 
     public Tester(Long id, String name) {
         this.id = id;
