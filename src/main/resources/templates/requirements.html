@@ -35,8 +35,8 @@
 
 
 <div class="pagination">
-    <a th:if="${currentPage > 0}" th:href="@{/requirements(page=${currentPage - 1})}">&larr; ← Zurück</a>
-    <a th:if="${currentPage < totalPages - 1}" th:href="@{/requirements(page=${currentPage + 1})}">Weiter → &rarr;</a>
+    <a th:if="${currentPage > 0}" th:href="@{/requirements(page=${currentPage - 1})}">← Zurück</a>
+    <a th:if="${currentPage < totalPages - 1}" th:href="@{/requirements(page=${currentPage + 1})}">Weiter →;</a>
     <a href="/requirements/new">+ Neue Anforderung</a>
 </div>
 
