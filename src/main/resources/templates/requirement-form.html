@@ -17,11 +17,13 @@
 
 <form th:action="@{/requirements}" th:object="${requirement}" method="post">
 
+  <div class="form-container">
   <label>Titel</label><br>
   <input type="text" th:field="*{title}" required><br><br>
 
   <label>Beschreibung</label><br>
   <textarea th:field="*{description}" rows="5" required></textarea><br><br>
+  </div>
 
   <div class="pagination">
   <button type="submit">Speichern</button>

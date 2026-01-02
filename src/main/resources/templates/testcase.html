@@ -38,16 +38,15 @@
 
 <div class="pagination">
 <a th:href="@{/requirements}">&larr; Zurück zur Liste</a>
-    <h3>Neuen Testfall hinzufügen</h3>
-
+</div>
+<div class="form-container">
     <form th:action="@{/requirements/{reqId}/testcases(reqId=${requirement.id})}"
           method="post">
 
         <input type="text"
                name="title"
-               placeholder="Titel des Testfalls"
+               placeholder="Neuer Testfall"
                required />
-
         <button type="submit">Testfall hinzufügen</button>
     </form>
 </div>
