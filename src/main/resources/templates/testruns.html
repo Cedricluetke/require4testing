@@ -27,7 +27,7 @@
         <tr th:each="tr : ${testRuns}">
             <td th:text="${tr.id}"></td>
             <td th:text="${tr.executionDate}"></td>
-            <td th:text="${tr.passed ? 'Bestanden' : 'Nicht bestanden'}"></td>
+            <td th:text="${tr.status}"></td>
             <td th:text="${tr.tester.name}"></td>
         </tr>
     </table>

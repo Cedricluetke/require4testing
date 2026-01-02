@@ -1,9 +1,6 @@
 package de.require4testing.require4testing.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Testcase {
@@ -14,12 +11,23 @@ public class Testcase {
     private String title;
     private boolean completed;
 
+    @ManyToOne
+    private Requirement requirement;
+
     // extra konstruktor für jpa
     protected Testcase() {}
 
     public Testcase(String title) {
         this.title = title;
         completed = false;
+    }
+
+    public void setRequirement(Requirement requirement) {
+        this.requirement = requirement;
+    }
+
+    public Requirement getRequirement() {
+        return requirement;
     }
 
     public Long getId() {

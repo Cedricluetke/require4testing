@@ -25,20 +25,24 @@ public class DataLoader {
             Tester nele = testerRepo.save(new Tester("Nele"));
 
             // Requirement
-            Requirement req = new Requirement("Login muss funktionieren", "Benutzer soll sich einloggen können");
-            requirementRepo.save(req);
+            Requirement req = new Requirement(
+                    "Login muss funktionieren",
+                    "Benutzer soll sich einloggen können"
+            );
 
-            // Testcases
-            Testcase tc1 = testcaseRepo.save(new Testcase("Login mit gültigen Daten"));
-            Testcase tc2 = testcaseRepo.save(new Testcase("Login mit falschem Passwort"));
+            Testcase tc1 = new Testcase("Login mit gültigen Daten");
+            Testcase tc2 = new Testcase("Login mit falschem Passwort");
+
+            tc1.setRequirement(req);
+            tc2.setRequirement(req);
 
             req.getTestCases().add(tc1);
             req.getTestCases().add(tc2);
+
             requirementRepo.save(req);
 
-            // Testruns
-            testrunRepo.save(new Testrun(LocalDate.now(),"PASSED",nele,tc1));
-            testrunRepo.save(new Testrun(LocalDate.now(),"FAILED",cedric,tc2));
+            testrunRepo.save(new Testrun(LocalDate.now(), "PASSED", nele, tc1));
+            testrunRepo.save(new Testrun(LocalDate.now(), "FAILED", cedric, tc2));
 
             System.out.println("Testdaten wurden geladen");
         };

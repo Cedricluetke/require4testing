@@ -29,7 +29,27 @@ public class Testrun {
         this.testcase = testcase;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public LocalDate getExecutionDate() {
+        return executionDate;
+    }
+
     public Testcase getTestcase() {
         return testcase;
+    }
+
+    public Tester getTester() {
+        return tester;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

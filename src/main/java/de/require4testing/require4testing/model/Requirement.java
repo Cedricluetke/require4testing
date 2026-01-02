@@ -16,7 +16,11 @@ public class Requirement {
     private String title;
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(
+            mappedBy = "requirement",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Testcase> testCases = new ArrayList<>();
 
     // für JPA
