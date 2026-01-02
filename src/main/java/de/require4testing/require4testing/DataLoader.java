@@ -41,8 +41,8 @@ public class DataLoader {
 
             requirementRepo.save(req);
 
-            testrunRepo.save(new Testrun(LocalDate.now(), "PASSED", nele, tc1));
-            testrunRepo.save(new Testrun(LocalDate.now(), "FAILED", cedric, tc2));
+            testrunRepo.save(new Testrun(LocalDate.now(),  nele, tc1));
+            testrunRepo.save(new Testrun(LocalDate.now(),  cedric, tc2));
 
             System.out.println("Testdaten wurden geladen");
         };

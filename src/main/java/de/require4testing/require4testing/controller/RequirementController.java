@@ -67,21 +67,7 @@ public class RequirementController {
         return "redirect:/requirements";
     }
 
-    @GetMapping("/requirements/{reqId}/testcases/{tcId}/testruns")
-    public String showTestRuns(
-            @PathVariable Long reqId,
-            @PathVariable Long tcId,
-            Model model
-    ) {
-        Testcase testcase = testcaseService.findById(tcId);
-        List<Testrun> testRuns = testrunService.findByTestcase(testcase);
 
-        model.addAttribute("testRuns", testRuns);
-        model.addAttribute("testcase", testcase);
-        model.addAttribute("requirementId", reqId);
-
-        return "testruns";
-    }
     @PostMapping("/requirements/{reqId}/testcases")
     public String addTestcase(
             @PathVariable Long reqId,

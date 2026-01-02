@@ -38,5 +38,23 @@
     ← Zurück zur Anforderung </a>
 </div>
 
+<div class="form-container">
+<form th:action="@{/requirements/{reqId}/testcases/{tcId}/testruns(
+        reqId=${requirementId},
+        tcId=${testcase.id})}"
+      method="post">
+
+    <label>Tester:</label>
+    <select name="testerId" required>
+        <option th:each="tester : ${testers}"
+                th:value="${tester.id}"
+                th:text="${tester.name}">
+        </option>
+    </select>
+
+    <button type="submit">Testlauf anlegen</button>
+</form>
+</div>
+
 </body>
 </html>

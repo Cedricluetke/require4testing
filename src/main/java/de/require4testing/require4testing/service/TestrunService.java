@@ -24,4 +24,8 @@ public class TestrunService {
     public List<Testrun> findByTestcase(Testcase testcase) {
         return testrunRepository.findByTestcase(testcase);
     }
+
+    public Testrun save(Testrun testrun) {
+        return testrunRepository.save(testrun);
+    }
 }

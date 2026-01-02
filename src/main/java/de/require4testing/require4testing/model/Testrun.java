@@ -22,9 +22,9 @@ public class Testrun {
 
     protected Testrun() {}
 
-    public Testrun(LocalDate executionDate, String status, Tester tester, Testcase testcase) {
+    public Testrun(LocalDate executionDate, Tester tester, Testcase testcase) {
         this.executionDate = executionDate;
-        this.status = status;
+        this.status = "OPEN";
         this.tester = tester;
         this.testcase = testcase;
     }
