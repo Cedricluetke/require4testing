@@ -15,7 +15,7 @@ public class Testcase {
     private Requirement requirement;
 
     // extra konstruktor für jpa
-    protected Testcase() {}
+    public Testcase() {}
 
     public Testcase(String title) {
         this.title = title;

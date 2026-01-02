@@ -82,4 +82,19 @@ public class RequirementController {
 
         return "testruns";
     }
+    @PostMapping("/requirements/{reqId}/testcases")
+    public String addTestcase(
+            @PathVariable Long reqId,
+            @RequestParam String title
+    ) {
+        Requirement requirement = requirementService.findById(reqId);
+
+        Testcase testcase = new Testcase(title);
+        testcase.setRequirement(requirement);
+        requirement.getTestCases().add(testcase);
+
+        requirementService.save(requirement);
+
+        return "redirect:/requirements/" + reqId;
+    }
 }
