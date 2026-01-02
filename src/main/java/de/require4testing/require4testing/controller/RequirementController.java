@@ -55,6 +55,18 @@ public class RequirementController {
         return "testcase";
     }
 
+    @GetMapping("/requirements/new")
+    public String showCreateForm(Model model) {
+        model.addAttribute("requirement", new Requirement());
+        return "requirement-form";
+    }
+
+    @PostMapping("/requirements")
+    public String createRequirement(Requirement requirement) {
+        requirementService.save(requirement);
+        return "redirect:/requirements";
+    }
+
     @GetMapping("/requirements/{reqId}/testcases/{tcId}/testruns")
     public String showTestRuns(
             @PathVariable Long reqId,

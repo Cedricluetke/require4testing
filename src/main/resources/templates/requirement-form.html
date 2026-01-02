@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Require4Testing</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+  <h1>Require4Testing</h1>
+</header>
+
+<h3>Angemeldet als:</h3>
+<p id="admin">Admin</p>
+
+<h2>Neue Anforderung</h2>
+
+<form th:action="@{/requirements}" th:object="${requirement}" method="post">
+
+  <label>Titel</label><br>
+  <input type="text" th:field="*{title}" required><br><br>
+
+  <label>Beschreibung</label><br>
+  <textarea th:field="*{description}" rows="5" required></textarea><br><br>
+
+  <div class="pagination">
+  <button type="submit">Speichern</button>
+  <a href="/requirements">Abbrechen</a>
+  </div>
+
+</form>
+
+
+</body>
+</html>

@@ -19,6 +19,10 @@ public class RequirementService {
         return requirementRepository.findAll(PageRequest.of(page, size));
     }
 
+    public void save(Requirement requirement) {
+        requirementRepository.save(requirement);
+    }
+
     public Requirement findById(Long id) {
         return requirementRepository.findById(id).orElse(null);
     }

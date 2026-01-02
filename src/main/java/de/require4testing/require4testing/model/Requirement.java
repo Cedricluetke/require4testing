@@ -24,7 +24,7 @@ public class Requirement {
     private List<Testcase> testCases = new ArrayList<>();
 
     // für JPA
-    protected Requirement() {}
+    public Requirement() {}
 
     public Requirement(String title, String description) {
         this.title = title;
@@ -40,9 +40,16 @@ public class Requirement {
     public String getDescription() {
         return description;
     }
-
     public List<Testcase> getTestCases() {
         return testCases;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }
 
