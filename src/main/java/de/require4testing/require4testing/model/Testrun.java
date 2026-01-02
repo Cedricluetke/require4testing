@@ -24,7 +24,7 @@ public class Testrun {
 
     public Testrun(LocalDate executionDate, Tester tester, Testcase testcase) {
         this.executionDate = executionDate;
-        this.status = "OPEN";
+        this.status = "Offen";
         this.tester = tester;
         this.testcase = testcase;
     }
