@@ -27,7 +27,21 @@
         <tr th:each="tr : ${testRuns}">
             <td th:text="${tr.id}"></td>
             <td th:text="${tr.executionDate}"></td>
-            <td th:text="${tr.status}"></td>
+            <td>
+                <form th:action="@{/testruns/{id}/status(id=${tr.id})}" method="post">
+                    <input type="hidden" name="requirementId" th:value="${requirementId}">
+                    <input type="hidden" name="testcaseId" th:value="${testcaseId}">
+
+                    <select name="status">
+                        <option th:value="OPEN"   th:selected="${tr.status.name() == 'OPEN'}">Offen</option>
+                        <option th:value="PASSED" th:selected="${tr.status.name() == 'PASSED'}">Bestanden</option>
+                        <option th:value="FAILED" th:selected="${tr.status.name() == 'FAILED'}">Fehlgeschlagen</option>
+                    </select>
+
+                    <button type="submit">Speichern</button>
+                </form>
+                </form>
+            </td>
             <td th:text="${tr.tester.name}"></td>
         </tr>
     </table>

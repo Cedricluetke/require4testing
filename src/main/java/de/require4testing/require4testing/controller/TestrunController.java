@@ -39,6 +39,7 @@ public class TestrunController {
         model.addAttribute("testcase", testcase);
         model.addAttribute("testers", testers);
         model.addAttribute("requirementId", reqId);
+        model.addAttribute("testcaseId", tcId);
 
         return "testruns";
     }
@@ -60,5 +61,18 @@ public class TestrunController {
         testrunService.save(testrun);
 
         return "redirect:/requirements/" + reqId + "/testcases/" + tcId + "/testruns";
+    }
+    @PostMapping("/testruns/{id}/status")
+    public String updateStatus(
+            @PathVariable Long id,
+            @RequestParam Testrun.TestrunStatus status,
+            @RequestParam Long requirementId,
+            @RequestParam Long testcaseId
+    ) {
+        testrunService.updateStatus(id, status);
+
+        return "redirect:/requirements/" + requirementId +
+                "/testcases/" + testcaseId +
+                "/testruns";
     }
 }
