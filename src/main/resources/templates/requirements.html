@@ -8,10 +8,11 @@
 
 <header>
     <h1>Require4Testing</h1>
+    <div class="header-right">
+        <span th:text="${session.rolle}"></span>
+        <a href="/logout" class="logout-btn">Abmelden</a>
+    </div>
 </header>
-
-<h3>Angemeldet als:</h3>
-<p id="admin" th:text="${session.rolle}">ROLLE</p>
 
 <h2>Liste der Requirements</h2>
 

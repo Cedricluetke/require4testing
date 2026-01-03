@@ -105,6 +105,17 @@ select {
     box-sizing: border-box;
 }
 
+.header-right {
+    font-family: 'Roboto Mono', monospace;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 #tesCasesList {
     width: 80%;
     border-collapse: separate;
