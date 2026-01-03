@@ -12,10 +12,12 @@
 
 <h2>Login</h2>
 
+<div class="form-container">
+
 <form th:action="@{/login}" method="post">
 
   <label>Rolle:</label>
-  <select name="role">
+  <select name="rolle">
     <option value="ADMIN">Admin</option>
     <option value="REQUIREMENTS_ENGINEER">Requirements Engineer</option>
     <option value="TESTMANAGER">Testmanager</option>
@@ -32,6 +34,10 @@
 
   <button type="submit">Login</button>
 </form>
+
+  <p th:if="${error}" th:text="${error}" style="color:red"></p>
+
+</div>
 
 </body>
 </html>
