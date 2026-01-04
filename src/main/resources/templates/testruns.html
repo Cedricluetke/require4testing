@@ -28,7 +28,10 @@
         <tr th:each="tr : ${testRuns}">
             <td th:text="${tr.id}"></td>
             <td th:text="${tr.executionDate}"></td>
-            <td>
+            <td th:if="${
+            session.rolle == T(de.require4testing.require4testing.model.Rolle).ADMIN
+            or session.rolle == T(de.require4testing.require4testing.model.Rolle).TESTER
+            }">
                 <form th:action="@{/testruns/{id}/status(id=${tr.id})}" method="post">
                     <input type="hidden" name="requirementId" th:value="${requirementId}">
                     <input type="hidden" name="testcaseId" th:value="${testcaseId}">
@@ -42,6 +45,12 @@
                     <button type="submit">Speichern</button>
                 </form>
                 </form>
+            </td>
+            <td th:if="${
+            session.rolle != T(de.require4testing.require4testing.model.Rolle).ADMIN
+            and session.rolle != T(de.require4testing.require4testing.model.Rolle).TESTER
+            }">
+                <span th:text="${tr.status}"></span>
             </td>
             <td th:text="${tr.tester.name}"></td>
         </tr>
