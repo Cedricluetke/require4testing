@@ -53,7 +53,10 @@
     ← Zurück zur Anforderung </a>
 </div>
 
-<div class="form-container">
+<div class="form-container" th:if="${
+    session.rolle == T(de.require4testing.require4testing.model.Rolle).ADMIN
+    or session.rolle == T(de.require4testing.require4testing.model.Rolle).TESTMANAGER
+}">
 <form th:action="@{/requirements/{reqId}/testcases/{tcId}/testruns(
         reqId=${requirementId},
         tcId=${testcase.id})}"
