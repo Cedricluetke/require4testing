@@ -1,4 +1,4 @@
-package de.require4testing.require4testing;
+/* package de.require4testing.require4testing;
 
 import de.require4testing.require4testing.model.*;
 import de.require4testing.require4testing.repository.*;
@@ -47,4 +47,5 @@ public class DataLoader {
             System.out.println("Testdaten wurden geladen");
         };
     }
-}
+} */
+//Data Loader würde wenn "spring.jpa.hibernate.ddl-auto=update" duplikate bei jedem starte erstellen, da jetzt persistent
