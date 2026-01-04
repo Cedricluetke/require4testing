@@ -40,7 +40,10 @@
 <div class="pagination">
 <a th:href="@{/requirements}">&larr; Zurück zur Liste</a>
 </div>
-<div class="form-container">
+<div class="form-container" th:if="${
+    session.rolle == T(de.require4testing.require4testing.model.Rolle).ADMIN
+    or session.rolle == T(de.require4testing.require4testing.model.Rolle).TESTFALLERSTELLER
+}">
     <form th:action="@{/requirements/{reqId}/testcases(reqId=${requirement.id})}"
           method="post">
 
